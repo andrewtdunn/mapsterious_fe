@@ -6,17 +6,17 @@
 
 > notes:
 
-- Uses the panTo function [described here on stack overload](http://stackoverflow.com/questions/9335150/slow-down-google-panto-function/31203045)
+- Interpolates the google maps panTo function <a href="http://stackoverflow.com/questions/9335150/slow-down-google-panto-function/31203045" target="_blank">described here on stack overload</a>.
 
 - Restaurant reviews are generated from the yelp-fusion api.
 
-- Recreation location and school information is from the wikipedia api
+- Recreation location and school information is from the wikipedia api.
 
 - api.mapsterious.com is used as middleware for yelp-fusion calls.
 
 - mapsterious (v2) is written in vue.js. the <a href="https://github.com/andrewtdunn/fortGreeneMap" target="_blank">og</a> was written in knockout.js
 
-- the mapsterious rest api is served by <a href="http://api.mapsterious.com" target="_blank">the admin site</a>which is written in flask
+- the mapsterious rest api is served by <a href="http://api.mapsterious.com" target="_blank">the admin site</a> which is written in flask.
 
 
 
