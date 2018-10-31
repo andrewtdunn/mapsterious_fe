@@ -2,7 +2,7 @@
 
 # Mapsterious.com
 
-[Deployed Project Here](http://www.mapsterious.com)
+<a href="http://www.mapsterious.com" target="_blank">Live Site</a>
 
 > mapsterious frontend notes
 
@@ -14,7 +14,11 @@ Recreation location and school information is from the wikipedia api
 
 api.mapsterious.com is used as middleware for yelp-fusion calls.
 
-rest api is served by [the admin site](http://api.mapsterious.com) which is written in flask
+mapsterious (v2) is written in vue.js. the <a href="https://github.com/andrewtdunn/fortGreeneMap" target="_blank">og</a> was written in knockout.js
+
+the mapsterious rest api is served by <a href="http://api.mapsterious.com" target="_blank">the admin site</a>which is written in flask
+
+
 
 
 ## Build Setup
