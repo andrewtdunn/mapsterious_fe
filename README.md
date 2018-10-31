@@ -1,4 +1,4 @@
-# mapapp
+# Mapsterious
 
 > map app frontend
 
