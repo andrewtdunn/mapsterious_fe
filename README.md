@@ -1,4 +1,22 @@
+![alt text](https://github.com/andrewtdunn/mapsterious_fe/blob/master/mapsterious.png "mapsterious")
+
 # Mapsterious
+
+[Deployed Project Here](http://www.mapsterious.com)
+
+
+I used the panTo function [described here on stack overload](http://stackoverflow.com/questions/9335150/slow-down-google-panto-function/31203045)
+
+
+Restaurant reviews are generated from the yelp api.
+
+
+Recreation location and school information is from the wikipedia api
+
+api.mapsterious.com is used as middleware for yelp calls.
+
+rest api is served by [the admin site](http://api.mapsterious.com)
+
 
 > map app frontend
 
