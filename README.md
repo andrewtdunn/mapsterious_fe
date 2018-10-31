@@ -4,19 +4,19 @@
 
 <a href="http://www.mapsterious.com" target="_blank">Live Site</a>
 
-> mapsterious frontend notes
+> notes:
 
-Uses the panTo function [described here on stack overload](http://stackoverflow.com/questions/9335150/slow-down-google-panto-function/31203045)
+> Uses the panTo function [described here on stack overload](http://stackoverflow.com/questions/9335150/slow-down-google-panto-function/31203045)
 
-Restaurant reviews are generated from the yelp-fusion api.
+> Restaurant reviews are generated from the yelp-fusion api.
 
-Recreation location and school information is from the wikipedia api
+> Recreation location and school information is from the wikipedia api
 
-api.mapsterious.com is used as middleware for yelp-fusion calls.
+> api.mapsterious.com is used as middleware for yelp-fusion calls.
 
-mapsterious (v2) is written in vue.js. the <a href="https://github.com/andrewtdunn/fortGreeneMap" target="_blank">og</a> was written in knockout.js
+> mapsterious (v2) is written in vue.js. the <a href="https://github.com/andrewtdunn/fortGreeneMap" target="_blank">og</a> was written in knockout.js
 
-the mapsterious rest api is served by <a href="http://api.mapsterious.com" target="_blank">the admin site</a>which is written in flask
+> the mapsterious rest api is served by <a href="http://api.mapsterious.com" target="_blank">the admin site</a>which is written in flask
 
 
 
