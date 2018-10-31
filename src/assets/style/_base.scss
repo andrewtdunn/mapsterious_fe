@@ -1,0 +1,56 @@
+@import "../fonts/clear-sans";
+@import "../fonts/scifi";
+@import "../fonts/icomoon";
+@import "reset";
+
+$overState:  #eee;
+$downState: #ddd;
+
+$deepPurple: #704099;
+$gold: #FFCA45;
+$basicBlue: #0000AA;
+$green: #009900;
+$lightestGray: rgba(70,70,70, 0.8);
+$lightGray: rgba(70,70,70, 0.9);
+$offWhite: rgba(255,255,255, 0.9);
+$almostOffWhite: rgba(200,200,200, 0.9);
+$almostOffWhiteAlpha: rgba(200,200,200, 0.4);
+$blackOverlay: rgba(0,0,0, 0.1);
+$offBlack: rgba(0,0,0, 0.7);
+$offRed: rgb(139,0,0);
+$deepRed: rgba(255,50,50, 0.9);
+$iconGray: rgba(50,50,50,0.6);
+
+@mixin three_d {
+  color: $offBlack;
+  font-family: EurostileLT-BoldExtendedTwo;
+  text-transform: uppercase;
+  text-shadow: -2px 0 1px rgb(30,242,241) , 2px 0 1px rgb(246,5,10);
+}
+
+@mixin lightup {
+  animation: lightup 1s infinite;
+
+  @keyframes lightup {
+
+    0% {
+      filter: brightness(1);
+    }
+
+    50% {
+      filter: brightness(1.5);
+    }
+
+    100% {
+      filter: brightness(3);
+    }
+  }
+}
+
+@mixin fetching {
+  transition: opacity 1s ease;
+
+  &.fetching {
+    opacity: 0;
+  }
+}
