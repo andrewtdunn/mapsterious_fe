@@ -16,7 +16,7 @@
 
 - mapsterious (v2) is written in vue.js. the <a href="https://github.com/andrewtdunn/fortGreeneMap" target="blank">og</a> was written in knockout.js
 
-- the mapsterious rest api is served by <a href="http://api.mapsterious.com" target="blank">the admin site</a> which is written in flask.
+- the mapsterious rest api is served by <a href="https://github.com/andrewtdunn/mapsterious_be" target="blank">the admin site</a> which is written in flask.
 
 
 
