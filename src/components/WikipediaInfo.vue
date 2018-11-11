@@ -46,7 +46,7 @@ export default {
         }
         this.extract = longExtract
       })
-      var imagesUrl = 'http://en.wikipedia.org/w/api.php?action=query&titles=' + newLoc.label + '&prop=pageimages&format=json&pithumbsize=300&callback=?'
+      var imagesUrl = 'https://en.wikipedia.org/w/api.php?action=query&titles=' + newLoc.label + '&prop=pageimages&format=json&pithumbsize=300&callback=?'
       axios({url: imagesUrl, adapter: jsonpAdapter}).then((res) => {
         self.fetching = false
         if (res.data.query.pages[newLoc.wiki_id] != null &&

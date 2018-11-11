@@ -1,5 +1,5 @@
 'use strict'
 module.exports = {
   NODE_ENV: '"production"',
-  SERVER_URL: '"http://api.mapsterious.com"'
+  SERVER_URL: '"https://api.mapsterious.com"'
 }

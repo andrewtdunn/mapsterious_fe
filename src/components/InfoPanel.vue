@@ -106,9 +106,7 @@ export default {
               flex-direction: row;
               align-items: center;
               justify-content: flex-end;
-              margin-bottom: 5px;
               word-wrap:break-word;
-              padding: 10px 0px;
 
               h2 {
                 display: inline;
@@ -140,10 +138,9 @@ export default {
 
               }
               .nav__imageholder {
-                width: 170px;
+                width: 100px;
                 height: 100px;
-                margin-left: 20px;
-                margin-right: 10px;
+                margin-left: 10px;
                 display: flex;
                 align-items: center;
                 justify-content: center;

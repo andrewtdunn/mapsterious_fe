@@ -180,6 +180,8 @@ export default {
         margin-top: 118px;
         height: 100%;
         overflow: scroll;
+        display: flex;
+        scroll-snap-type: y mandatory;
         position: relative;
         height: calc(100vh - 154px;);
         opacity: 0;
@@ -195,6 +197,7 @@ export default {
           grid-auto-rows: min-content;
 
           li {
+            scroll-snap-align: start;
             width: 100%;
             height: 80px;
             text-align: center;

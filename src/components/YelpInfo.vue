@@ -72,6 +72,7 @@ export default {
   methods: {
     getInfo (loc) {
       this.fetching = true
+      console.log(loc.yelp_id)
       axios.get(process.env.SERVER_URL + '/yelp/' + loc.yelp_id + '/JSON')
         .then((response) => {
           this.fetching = false
