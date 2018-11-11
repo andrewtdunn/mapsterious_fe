@@ -3,7 +3,7 @@
     <GmapMap
       ref="mapRef"
       :center="center"
-      :zoom="NORMAL_ZOOM_DISTANCE"
+      :zoom="MIN_ZOOM"
       map-type-id="satellite"
       style="width: 100%; height: 100%;"
       :options="mapOptions"
@@ -17,9 +17,8 @@
         :draggable="false"
         :animation="loc.animation"
         :opacity="loc.opacity"
-
         :visible="loc.visible && checkSearch(loc.menuLabel.toLowerCase().trim(),loc.label.toLowerCase().trim())"
-        :icon="'https://s3-us-west-2.amazonaws.com/andrewdunn-pictures/thumbs/images/' + loc.icon"
+        :icon="icon(loc)"
         @click="onClick(loc)"
       />
     </GmapMap>
@@ -42,8 +41,11 @@ export default {
       title: 'ft greene map',
       NORMAL_ZOOM_DISTANCE: 16,
       ZOOM_IN_DISTANCE: 18,
-      center: {lat: 40.688885, lng: -73.977042},
-      mapOptions: {disableDefaultUI: true}
+      MIN_ZOOM: 4,
+      center: {lat: 41.850033, lng: -87.6500523},
+      mapOptions: {disableDefaultUI: true},
+      imageBucket: 'https://s3-us-west-2.amazonaws.com/andrewdunn-pictures/thumbs/images/',
+      staticImageBucket: 'https://s3-us-west-2.amazonaws.com/andrewdunn-pictures/static/'
     }
   },
   methods: {
@@ -66,6 +68,9 @@ export default {
     setZoom (level) {
       this.mapRef.setZoom(level)
     },
+    setCenter (latLng) {
+      this.mapRef.setCenter(latLng)
+    },
     onClick (loc) {
       this.SET_FEATURED_LOCATION(loc)
       this.SET_CLICK_SOURCE('map')
@@ -80,6 +85,30 @@ export default {
     closePanels () {
       this.CLOSE_INFO()
       this.CLOSE_MENU()
+    },
+    icon (loc) {
+      if (!this.mapRef || this.zoomedOut) {
+        let markerColor
+        switch (loc.locationType) {
+          case 'food':
+            markerColor = 'gold'
+            break
+          case 'school':
+            markerColor = 'red'
+            break
+          case 'rec':
+            markerColor = 'green'
+            break
+        }
+        return {url: `${this.staticImageBucket}${markerColor}_sq.png`}
+      } else {
+        return {url: this.imageBucket + loc.icon}
+      }
+    },
+    icon_size (loc) {
+      if (this.google.maps) {
+        return this.google.maps.Size(10, 10)
+      }
     }
   },
   watch: {
@@ -112,6 +141,13 @@ export default {
           }, 2000)
         }, 1500)
       }
+    },
+    zoomedOut (newVal, oldVal) {
+      console.log('newZoom', newVal)
+      if (newVal) {
+        this.setZoom(this.MIN_ZOOM)
+        this.setCenter(this.center)
+      }
     }
   },
   beforeUpdate () {
@@ -124,7 +160,8 @@ export default {
       'locations',
       'featuredLocation',
       'clickSource',
-      'searchTerm'
+      'searchTerm',
+      'zoomedOut'
     ]),
     markers () {
       return this.mapRef.markers

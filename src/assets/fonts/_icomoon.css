@@ -53,3 +53,9 @@ $font_path: "../assets/fonts/";
 .icon-text-color:before {
   content: "\ea6d";
 }
+.icon-sphere:before {
+  content: "\e9c9";
+}
+.icon-earth:before {
+  content: "\e9ca";
+}

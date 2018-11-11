@@ -13,9 +13,10 @@ export const store = new Vuex.Store({
     filterTypes: [ 'food', 'school', 'rec' ],
     filters: [],
     searchTerm: '',
-    menuOpen: false,
+    menuOpen: true,
     infoExpanded: false,
-    initialized: false
+    initialized: false,
+    zoomedOut: true
   },
   mutations: {
     'SET_STORE' (state, locations) {
@@ -78,6 +79,9 @@ export const store = new Vuex.Store({
     },
     'SET_INITIALIZED' (state) {
       state.initialized = true
+    },
+    'SET_ZOOMED_OUT' (state, zoomedOut) {
+      state.zoomedOut = zoomedOut
     }
   },
   actions: {
@@ -119,6 +123,9 @@ export const store = new Vuex.Store({
     },
     initialized (state) {
       return state.initialized
+    },
+    zoomedOut (state) {
+      return state.zoomedOut
     }
 
   }

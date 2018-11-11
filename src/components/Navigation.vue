@@ -3,6 +3,9 @@
       <div class="navholder">
         <div class="nav__adminbtns">
           <div class="nav__adminbtn" @click="linkAdmin()">Admin</div>
+          <div class="nav__zoomOutBtn" @click="zoomOut">
+            <span class="icon-earth nav__GlobeIcon"></span>
+          </div>
           <div class="nav__menuTypeBtn" @click="changeMenuType">
             <span :class="[getMenuButtonType, 'nav__buttonIcons']"></span>
           </div>
@@ -59,13 +62,15 @@ export default {
       'SET_FILTER',
       'SET_SEARCHTERM',
       'CLOSE_INFO',
-      'CLOSE_MENU'
+      'CLOSE_MENU',
+      'SET_ZOOMED_OUT'
     ]),
     onClick (loc) {
       this.SET_FEATURED_LOCATION(loc)
       this.SET_CLICK_SOURCE('nav')
       this.CLOSE_INFO()
       this.CLOSE_MENU()
+      this.SET_ZOOMED_OUT(false)
     },
     filterByType () {
       this.SET_FILTER(this.sortFilter)
@@ -97,6 +102,9 @@ export default {
     },
     changeMenuType () {
       this.showIconButtons = !this.showIconButtons
+    },
+    zoomOut () {
+      this.SET_ZOOMED_OUT(true)
     }
   },
   watch: {
@@ -113,7 +121,8 @@ export default {
       'locations',
       'filterTypes',
       'menuOpen',
-      'initialized'
+      'initialized',
+      'zoomedOut'
     ]),
     isFilterActive () {
       if (this.sortFilter !== 'no filter') {
@@ -136,7 +145,7 @@ export default {
       return (this.showIconButtons) ? 'imageType' : 'textType'
     },
     getMenuButtonType () {
-      return (this.showIconButtons) ? 'icon-image' : 'icon-text-color'
+      return (this.showIconButtons) ? 'icon-text-color' : 'icon-image'
     },
     listType () {
       return (this.showIconButtons) ? 'list-grid' : ''
@@ -180,22 +189,20 @@ export default {
         margin-top: 118px;
         height: 100%;
         overflow: scroll;
-        display: flex;
-        scroll-snap-type: y mandatory;
         position: relative;
         height: calc(100vh - 154px;);
         opacity: 0;
         top: -800;
         transition: all 1s ease;
         width: 240px;
+        grid-auto-rows: min-content;
+        scroll-snap-type: y mandatory;
 
         &.list-grid {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
           grid-column-gap: 10px;
           grid-row-gap: 10px;
-          grid-auto-rows: min-content;
-
           li {
             scroll-snap-align: start;
             width: 100%;
@@ -250,6 +257,7 @@ export default {
       li,
       .nav__adminbtn,
       .nav__select-filters,
+      .nav__zoomOutBtn,
       input.nav__input,
       .nav__menuTypeBtn {
           @include three_d;
@@ -428,7 +436,7 @@ export default {
       }
 
       .nav__adminbtn{
-        width: 80%;
+        width: 60%;
       }
 
       .nav__adminbtns{
@@ -437,7 +445,8 @@ export default {
         width: 100%;
       }
 
-      .nav__menuTypeBtn {
+      .nav__menuTypeBtn,
+      .nav__zoomOutBtn {
         width: 20%;
         margin-left: 2px;
         text-shadow: none;
