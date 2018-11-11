@@ -41,7 +41,7 @@ export default {
       title: 'ft greene map',
       NORMAL_ZOOM_DISTANCE: 16,
       ZOOM_IN_DISTANCE: 18,
-      MIN_ZOOM: 4,
+      MIN_ZOOM: 2,
       center: {lat: 41.850033, lng: -87.6500523},
       mapOptions: {disableDefaultUI: true},
       imageBucket: 'https://s3-us-west-2.amazonaws.com/andrewdunn-pictures/thumbs/images/',
