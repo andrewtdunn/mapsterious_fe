@@ -1,5 +1,5 @@
 <template lang="html">
-    <aside :class="['aside__info_panel', backgrounded]" @click="onTap()">
+    <aside v-if="!zoomedOut" :class="['aside__info_panel', backgrounded]" @click="onTap()">
       <article class="aside__detail" :class="featuredLocation.locationType">
           <hgroup>
               <h2 :class="checkLength(featuredLocation.label)" v-html="decode(featuredLocation.label)"></h2>
@@ -28,13 +28,17 @@ export default {
     ...mapGetters([
       'featuredLocation',
       'infoExpanded',
-      'menuOpen'
+      'menuOpen',
+      'zoomedOut'
     ]),
     isExpanded () {
       return (this.infoExpanded) ? 'expanded' : ''
     },
     backgrounded () {
       return (this.menuOpen) ? 'background' : ''
+    },
+    hideForZoom () {
+      return (this.zoomOut) ? 'hidden' : ''
     }
   },
   methods: {
@@ -78,6 +82,10 @@ export default {
         width: calc(100% - 20px);
         margin: 10px;
         transition: opacity .3s ease;
+
+        &.hidden {
+          display: none;
+        }
 
         &.background {
           opacity: 0;
@@ -167,6 +175,7 @@ export default {
               &.expanded {
                 max-height: 2000px;
                 opacity: 1;
+                margin-top: 5px;
               }
 
               @media (min-width:641px) {

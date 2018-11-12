@@ -105,6 +105,8 @@ export default {
     },
     zoomOut () {
       this.SET_ZOOMED_OUT(true)
+      this.CLOSE_MENU()
+      this.CLOSE_INFO()
     }
   },
   watch: {
@@ -145,7 +147,7 @@ export default {
       return (this.showIconButtons) ? 'imageType' : 'textType'
     },
     getMenuButtonType () {
-      return (this.showIconButtons) ? 'icon-text-color' : 'icon-image'
+      return (this.showIconButtons) ? 'icon-image' : 'icon-text-color'
     },
     listType () {
       return (this.showIconButtons) ? 'list-grid' : ''
