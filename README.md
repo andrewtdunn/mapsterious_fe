@@ -1,6 +1,4 @@
-<a href="http://www.mapsterious.com" target="blank">
 ![alt text](https://github.com/andrewtdunn/mapsterious_fe/blob/master/mapsterious.png "mapsterious")
-</a>
 
 # mapsterious.com
 
